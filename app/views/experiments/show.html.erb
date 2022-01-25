@@ -1,0 +1,33 @@
+<h1><%= @experiment.name %></h1>
+
+<%= md(@experiment.description) %>
+
+<hr>
+
+<% status = @experiment.user_progress(current_user).status %>
+
+<% if status == "assigned" %>
+  <%= button_to t(:join), join_experiment_path(@experiment), class: 'btn btn-large btn-primary' %>
+<% elsif status == "completed" %>
+  <div class="alert alert-info">
+    <%= t(:already_completed) %>
+  </div>
+<% elsif status == "unassigned" %>
+  <div class="alert alert-danger">
+  <%= t(:not_assigned) %>
+  </div>
+<% else %>
+  <%
+    if status == "joined"
+      continue_path = introduction_experiment_path(@experiment)
+    elsif status == "started"
+      continue_path = sequencelist_experiment_path(@experiment)
+    elsif status == "finished"
+      continue_path = outro_experiment_path(@experiment)
+    else
+      throw "Invalid status"
+    end
+  %>
+  <p><%= link_to t(:continue), continue_path, class: 'btn btn-default btn-large' %></p>
+  <p><%= button_to t(:unjoin), unjoin_experiment_path(@experiment), class: 'btn btn-danger btn-large', confirm: "Sure?" %></p>
+<% end %>

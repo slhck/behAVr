@@ -1,0 +1,24 @@
+<h1><%= @experiment.name %></h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t(:instructions) %></h3>
+  </div>
+  <div class="panel-body">
+    <%= md(@experiment.introduction) %>
+  </div>
+</div>
+
+<hr>
+
+<%= form_tag(complete_introduction_experiment_path, method: :post) do %>
+  <% if @experiment.access_key %>
+  <div class="form-group">
+    <%= t(:enter_access_key) %>
+    <%= text_field_tag :key, "", autofocus: true, class: 'form-control' %>
+  </div>
+  <% else %>
+    <%= hidden_field_tag :key, ""  %>
+  <% end %>
+  <%= submit_tag t(:send), class: 'btn btn-large btn-primary' %>
+<% end %>

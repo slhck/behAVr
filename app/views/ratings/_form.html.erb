@@ -1,0 +1,35 @@
+<div class="form-group">
+  <h4><%= rating_form.object.rating_prototype.question %><br></h4>
+
+  <%= rating_form.hidden_field :rating_prototype_id, value: rating_form.object.rating_prototype.id %>
+
+  <% answer_type = rating_form.object.rating_prototype.answer_type %>
+
+  <% if answer_type == 'text' %>
+
+    <%= rating_form.text_area :answer, class: 'form-control', rows: 5, data: { answer_type: answer_type }  %>
+
+  <% elsif answer_type == 'content_question' %>
+
+    <p><%= rating_form.object.sequence_result.test_sequence.source_video.content_question %></p>
+
+    <%= rating_form.text_area :answer, class: 'form-control', rows: 5, data: { answer_type: answer_type }  %>
+
+  <% elsif answer_type == 'five_star' %>
+
+    <%= rating_form.text_area :answer, class: 'hidden', data: { answer_field: true }  %>
+
+    <span class="star-rating">
+      <input id="rating5" type="radio" value="5">
+      <label for="rating5">5</label>
+      <input id="rating4" type="radio" value="4">
+      <label for="rating4">4</label>
+      <input id="rating3" type="radio" value="3">
+      <label for="rating3">3</label>
+      <input id="rating2" type="radio" value="2">
+      <label for="rating2">2</label>
+      <input id="rating1" type="radio" value="1">
+      <label for="rating1">1</label>
+    </span>
+  <% end %>
+</div>

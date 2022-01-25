@@ -1,0 +1,10 @@
+# CONDITION CONFIG FILE
+#
+# Modify to your li
+
+conditions:
+  - cond_id: HRC01
+    player_params:
+      initialBufferingTime: 5
+
+  - cond_id: HRC02

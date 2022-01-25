@@ -1,0 +1,56 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  about: "About"
+  welcome: "Welcome to"
+  writtenby: "is a tool written by Werner Robitza."
+  hello: "Hello, user! You can take part in the following experiments now:"
+  no_experiments: "You have no experiments at the moment."
+  join: "Join this experiment"
+  continue: "Continue"
+  already_completed: "You've already completed this experiment."
+  not_assigned: "You cannot participate in this experiment."
+  enter_access_key: "Enter the key you received after completing the questionnaire:"
+  enter_finish_key: "Enter the key you received after completing the questionnaire:"
+  unjoin: "Cancel progress"
+  experiments: "Experiments"
+  wrong_access_key: "Wrong access key!"
+  wrong_finish_key: "Wrong access key!"
+  send: "Send"
+  finished_thank_you: "You're finished. Thanks for your participation!"
+  status_assigned: "N/A"
+  status_joined: "Joined"
+  status_started: "Started main part"
+  status_finished: "Completed main part"
+  status_completed: "Completed experiment"
+  finish: "Finish main part"
+  remember: "Remember me"
+  instructions: "Instructions"
+  change_language: "Deutsch"
+  duration: "Duration"
+  submit_rating: "Submit rating"
+  fill_all_required_fields: "Please fill all required fields!"
+  is_required: "is required"
+  congrats_finished: "You finished the experiment. Please click at the button at the bottom of the page to continue!"
+  home_page: "Home"
+  username_prompt: "<User-ID>@example.com"
+  admin: 'Admin'

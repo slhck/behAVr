@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-lg-12" style="min-height: 100vh; display: flex; align-items: center">
+    <%= form_for @sequence_result, url: sequence_result_save_ratings_path(@sequence_result), method: 'post', html: { style: 'width: 100%' } do |f| %>
+      <%= f.fields_for :ratings do |rating_form| %>
+        <%= render 'ratings/form', rating_form: rating_form %>
+        <hr>
+      <% end %>
+      <p style="margin-top: 30px"><%= f.submit t(:submit_rating), class: 'btn btn-large btn-primary' %></p>
+    <% end %>
+  </div>
+</div>

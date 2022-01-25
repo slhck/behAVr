@@ -1,0 +1,7 @@
+<h2><%= experiment.name %></h2>
+
+<% experiment.experiment_progresses.completed.order(:created_at).each do |experiment_progress| %>
+
+  <%= render 'experiment_progresses/show', experiment_progress: experiment_progress %>
+
+<% end %>

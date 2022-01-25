@@ -1,0 +1,47 @@
+<!-- <%= "Debug: #{@test_sequence.sequence_id}, Condition: #{@test_sequence.condition.cond_id}" %> -->
+
+<div id="player"></div>
+
+<%
+player_params = @test_sequence.condition.player_params
+if player_params.nil?
+  player_params = {}
+end
+
+# set parameters for player based on condition
+params = {
+  baseUrl: root_url,
+  source: @test_sequence.source_video.url,
+  testId: @sequence_result.id
+}.merge(player_params)
+%>
+
+<script>
+  $(document).ready(function() {
+    var params = <%= raw params.to_json %>
+    // BEGIN FIXME: An ugly hack to make the player as wide as the Bootstrap column (80% of that)
+    // and in 16/9 aspect ratio
+    params.width = $('#player').width() * 0.9
+    params.height = params.width * 9/16
+    // END
+
+    // callback for events
+    params.onEvent = function(type, value, client_time) {
+      $.post("<%= sequence_result_behavior_events_url(@sequence_result.id) %>", {
+        type: type,
+        value: value,
+        client_time: client_time
+      }, function(response) {
+        if (response.error) {
+          console.error(response.error);
+        }
+      })
+
+      // when video is finished, redirect to rating page
+      if (type == 'system.player.ended') {
+        window.location.href = "<%= sequence_result_new_ratings_url(@sequence_result) %>"
+      }
+    }
+    window.fakePlayer = new FakePlayer(params)
+  })
+</script>

@@ -1,0 +1,17 @@
+# VIDEO CONFIG FILE
+#
+# Modify to your liking
+
+videos:
+  - src_id: SRC01
+    name_de: "Test Video 1 Deutsch"
+    name_en: "Test Video 1 English"
+    description_de: "Test Video 1 Beschreibung Deutsch"
+    description_en: "Test Video 1 Description English"
+    duration: 60
+  - src_id: SRC02
+    name_de: "Test Video 2 Deutsch"
+    name_en: "Test Video 2 English"
+    description_de: "Test Video 2 Beschreibung Deutsch"
+    description_en: "Test Video 2 Description English"
+    duration: 90

@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <th>Type</th>
+    <th>Question</th>
+    <th>Answer</th>
+  </thead>
+  <tbody>
+    <% ratings.includes(:rating_prototype).order("rating_prototypes.order").each do |rating| %>
+    <tr>
+      <td><%= rating.rating_prototype.answer_type %></td>
+      <td>
+        <%= rating.rating_prototype.question %>
+        <% if rating.rating_prototype.answer_type == 'content_question' %>
+          <%= rating.sequence_result.test_sequence.source_video.content_question %>
+        <% end %>
+      </td>
+      <td><%= rating.answer %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+experiments:
+
+  - name: Experiment
+    active: true
+    access_key: test
+    description_en: Study on usage of online video services
+    description_de: Studie zur Nutzung von Online-Videodiensten
+    introduction_en: |
+      ### Reminder: What should I do during the test?
+      In this test, you use a video portal, where a few videos are available. Please select some of them which are interesting to you. It does not matter in which order the videos are viewed. If you have completely seen a video, a window will appear in which you should summarize the contents of the video briefly, just as you would refer it to friends. Also, you need to answer a question about the content. Then you should evaluate how much you like the video.
+      Please look at the video entirely – we want you to be able to describe the video as much as possible.
+
+      #### Please fill out part 1 of the questionnaire!
+    introduction_de: |
+      ### Erinnerung: Was muss ich während des Tests tun?
+      In diesem Test verwenden Sie ein Videoportal, in dem einige Videos zur Verfügung stehen. Bitte wählen Sie die, welche Sie am meisten interessieren. Es spielt keine Rolle, in welcher Reihenfolge die Videos angesehen werden. Wenn Sie ein Video vollständig gesehen haben, erscheint ein Fenster, in welchem Sie den Inhalt des Videos kurz – also in wenigen Sätzen – zusammenfassen sollen, so als würden Sie Freunden weiterleiten. Dann sollen Sie eine Frage zum Inhalt beantworten. Außerdem sollen Sie bewerten, wie sehr Ihnen das Video gefallen hat.
+      Bitte sehen Sie sich die Videos ganz an – wir möchten, dass Sie die Videos so gut wie möglich beschreiben können.
+
+      #### Bitte füllen Sie jetzt Teil 1 des Fragebogens aus!
+    main_instructions_en: Please select a video that you are interested in!
+    main_instructions_de: Bitte wähle ein Video, das Dich interessiert!
+    outro_en: Please fill out the questionnaire part 2 to finish the experiment.
+    outro_de: Bitte fülle nun den Teil 2 des Fragebogens zum Abschluss des Experiments aus.
+    test_sequence_mapping: random_live
+    source_videos: [ 97Percent, AssassinsCreed, BaliRoadTrip, Barefoot, BigBuckBunny, Cliff, CoffeeVirgin, Dubai, Football4k, FootballPro, GoProHero4k, GoproHero, Holorama, Hoverboard, JohnnyExpress, MachuPicchu, Nespresso, NoneOfThat, Orthopaedics, RealGTA, Sintel, StateZero, StJohn, StarWarsToys, StormTroopers, TearsOfSteel, TheOceanMaker, TheRamens, TumbleweedTango, WatchDogsParkour, WaterMakers, WireCutters ]
+    conditions: [ HRC01, HRC02, HRC03, HRC04, HRC05, HRC06, HRC07 ]
+    reference_condition: HRC01
+    finish_condition: rated_all_conditions
+    rating_prototypes:
+      - question_de: Bitte fasse den Inhalt in ein paar Sätzen zusammen!
+        question_en: Please summarize the content in a few sentences!
+        answer_type: text
+        required: true
+        order: 1
+      - question_de: Bitte beantworte die Frage zum Inhalt!
+        question_en: Please answer the question related to the content!
+        answer_type: content_question
+        required: true
+        order: 2
+      - question_de: Bitte bewerte, wie sehr Dir das Video gefallen hat!
+        question_en: Please rate how much you liked the video!
+        answer_type: five_star
+        required: true
+        order: 3

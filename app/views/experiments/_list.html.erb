@@ -1,0 +1,41 @@
+<% experiments = current_user.experiment_progresses.select { |ep| ep.experiment.active and not ep.status == "unassigned" }.map &:experiment %>
+
+<% if experiments.any? %>
+
+<table width="100%" class="table table-striped">
+  <thead>
+    <tr>
+      <th width="20%">
+        <%= t(:experiment) %>
+      </th>
+      <th>
+        <%= t(:progress) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% experiments.each do |experiment| %>
+    <% progress = experiment.experiment_progresses.find_by user: current_user %>
+      <tr>
+        <td>
+          <%= link_to experiment.name, experiment %>
+        </td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar <%= progress.status == "completed" ? "progress-bar-success" : "" %>" role="progressbar" aria-valuenow="<%= progress.percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= progress.percent %>%;">
+              <%= progress.verbal %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+
+<div class="alert alert-warning">
+  <%= t(:no_experiments) %>
+</div>
+
+<% end %>

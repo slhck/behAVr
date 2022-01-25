@@ -1,0 +1,15 @@
+<h1><%= t(:welcome) + ' ' + Settings.app_name %></h1>
+
+<% if user_signed_in? %>
+
+<p>
+  <%= t(:hello) %>
+</p>
+
+<%= render "experiments/list" %>
+
+<% else %>
+
+Please sign in first.
+
+<% end %>

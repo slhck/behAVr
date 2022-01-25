@@ -1,0 +1,33 @@
+<table class="table table-striped sortable">
+  <thead style="cursor: pointer">
+    <th>Client Time</th>
+    <th>Time Created</th>
+    <th>Rel. Time</th>
+    <th>Event Type</th>
+    <th>Value</th>
+  </thead>
+  <tbody class="">
+    <% behavior_events.order(:client_time).each do |behavior_event| %>
+      <tr>
+        <td>
+          <%= behavior_event.client_time.strftime('%d.%m.%Y') %><br>
+          <%= behavior_event.client_time.strftime('%H:%M:%S.%L') %>
+        </td>
+        <td>
+          <%= behavior_event.created_at.strftime('%d.%m.%Y') %><br>
+          <%= behavior_event.created_at.strftime('%H:%M:%S.%L') %>
+        </td>
+        <td>
+          <% previous = behavior_events.previous(behavior_event.id) %>
+          <% if previous.any? %>
+            <%= (behavior_event.client_time - previous.last.client_time).round(3) %>
+          <% else %>
+          NA
+          <% end %>
+        </td>
+        <td><code><%= behavior_event.type %></code></td>
+        <td><%= behavior_event.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

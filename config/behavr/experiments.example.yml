@@ -1,0 +1,68 @@
+# EXPERIMENT CONFIGURATION FILE
+#
+# Add your experiments here, under the "experiments" key.
+# Add the source videos under the "source_videos" key
+
+experiments:
+
+  - name: Test Experiment 1
+    active: true
+    access_key: test
+    finish_key: test
+    description_en: This is a dummy experiment description.
+    description_de: Test-Experiment description auf Deutsch.
+    introduction_en: This is a dummy experiment introduction.
+    introduction_de: Test-Experiment introduction auf Deutsch.
+    main_instructions_en: This is a dummy experiment main instructions.
+    main_instructions_de: Test-Experiment main instructions auf Deutsch.
+    outro_en: This is a dummy experiment outro.
+    outro_de: Test-Experiment outro auf Deutsch.
+    test_sequence_mapping: manual
+    source_videos: [ SRC01, SRC02 ]
+    conditions: [ HRC01, HRC02 ]
+    test_sequences:
+      - [ SEQ01, SRC01, HRC01 ]
+      - [ SEQ02, SRC01, HRC02 ]
+      - [ SEQ03, SRC02, HRC01 ]
+      - [ SEQ04, SRC02, HRC02 ]
+
+  - name: Test Experiment 2
+    active: true
+    access_key: test
+    finish_key: test
+    description_en: |
+      ### This is a dummy experiment description.
+
+      You can use Markdown here and even [include links](http://example.com)!
+    description_de: |
+      ### Test-Experiment description auf Deutsch.
+
+      Du kannst hier auch [Links verwenden](http://example.com)!
+    introduction_en: |
+      ### This is a dummy experiment introduction.
+
+      You can use Markdown here and even [include links](http://example.com)!
+    introduction_de: |
+      ### Test-Experiment introduction auf Deutsch.
+
+      Du kannst hier auch [Links verwenden](http://example.com)!
+    main_instructions_en: |
+      ### This is a dummy experiment main instructions.
+
+      You can use Markdown here and even [include links](http://example.com)!
+    main_instructions_de: |
+      ### Test-Experiment main instructions auf Deutsch.
+
+      Du kannst hier auch [Links verwenden](http://example.com)!
+    outro_en: This is a dummy experiment outro.
+    outro_de: Test-Experiment outro auf Deutsch.
+    test_sequence_mapping: manual # or random, random_live
+    source_videos: [ SRC01, SRC02 ]
+    conditions: [ HRC01, HRC02 ]
+    reference_condition: HRC01 # needed for random assignment
+    test_sequences:
+      - [ SEQ01, SRC01, HRC01 ]
+      - [ SEQ02, SRC01, HRC02 ]
+      - [ SEQ03, SRC02, HRC01 ]
+      - [ SEQ04, SRC02, HRC02 ]
+    finish_condition: rated_all_conditions # or rated_all_sequences

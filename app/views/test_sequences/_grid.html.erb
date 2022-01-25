@@ -1,0 +1,29 @@
+<% test_sequences.shuffle.in_groups_of(4, false) do |group| %>
+<!-- sort_by(&:sequence_id) would also be possible -->
+<div class="row">
+  <% group.each do |test_sequence| %>
+    <% watch_link = experiment_test_sequence_watch_path(test_sequence.experiment, test_sequence) %>
+    <% rated = experiment_progress.rated_sequences.include? test_sequence %>
+      <div class="col-sm-3">
+        <div class="video-preview-container">
+          <div class="video-thumbnail-container">
+            <% if rated %>
+              <%= render 'source_videos/thumbs', source_video: test_sequence.source_video, disabled: rated %>
+            <% else %>
+              <%= link_to watch_link do %>
+                <%= render 'source_videos/thumbs', source_video: test_sequence.source_video, disabled: rated %>
+              <% end %>
+            <% end %>
+            <div class="video-duration"><%= test_sequence.source_video.duration_hms %></div>
+          </div>
+          <div class="video-description">
+            <h5 class="video-header"><%= link_to_unless(rated, test_sequence.source_video.name, watch_link) %></h5>
+            <p class="small">
+              <%= truncate test_sequence.source_video.description, length: 35 %>
+            </p>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+<% end %>

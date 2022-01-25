@@ -1,0 +1,20 @@
+<h1>Sequence Result <%= @sequence_result.id %></h1>
+
+<p>Created at: <%= @sequence_result.created_at.strftime('%d.%m.%Y, %H:%M:%S') %></p>
+
+<p>Source: <%= @sequence_result.test_sequence.source_video.src_id %> (<%= @sequence_result.test_sequence.source_video.name %>)</p>
+
+<h3>Condition <%= @sequence_result.test_sequence.condition.cond_id %></h3>
+
+Params:
+<pre>
+<%= @sequence_result.test_sequence.condition.player_params.to_json %>
+</pre>
+
+<h3>Behavior Events</h3>
+
+<%= render 'behavior_events/table', behavior_events: @sequence_result.behavior_events %>
+
+<h3>Ratings</h3>
+
+<%= render 'ratings/table', ratings: @sequence_result.ratings %>

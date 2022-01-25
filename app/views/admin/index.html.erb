@@ -1,0 +1,9 @@
+<h1>Experiment Overview</h1>
+
+<% Experiment.find_each do |experiment| %>
+
+  <%= render 'experiments/sequence_overview', experiment: experiment %>
+
+  <%= render 'experiments/admin_show', experiment: experiment %>
+
+<% end %>

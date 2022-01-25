@@ -1,0 +1,11 @@
+# GENERAL APP SETTINGS
+#
+# This can be overridden by a local settings file, too
+
+app_name:   Test Platform
+prefix:     http://localhost:5000/
+
+
+video:
+  serve_from_local: true
+  basepath: public/videos

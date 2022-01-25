@@ -1,0 +1,168 @@
+# USER CONFIG FILE
+#
+# Add each user with a key
+
+users:
+  - email: admin@example.com
+    password: test1234
+    locale: de
+    admin: true
+
+  - email: test@example.com
+    password: password
+    locale: de
+
+  # Users QN01
+  - email: 3440@example.com
+    password: password
+    locale: de
+  - email: 2997@example.com
+    password: password
+    locale: de
+  - email: 3268@example.com
+    password: password
+    locale: de
+  - email: 2720@example.com
+    password: password
+    locale: de
+  - email: 1430@example.com
+    password: password
+    locale: de
+  - email: 9719@example.com
+    password: password
+    locale: de
+  - email: 7304@example.com
+    password: password
+    locale: de
+  - email: 9097@example.com
+    password: password
+    locale: de
+  - email: 8757@example.com
+    password: password
+    locale: de
+  - email: 9867@example.com
+    password: password
+    locale: de
+  - email: 3792@example.com
+    password: password
+    locale: de
+  - email: 2177@example.com
+    password: password
+    locale: de
+  - email: 4047@example.com
+    password: password
+    locale: de
+  - email: 4917@example.com
+    password: password
+    locale: de
+  - email: 3871@example.com
+    password: password
+    locale: de
+  - email: 1810@example.com
+    password: password
+    locale: de
+  - email: 5677@example.com
+    password: password
+    locale: de
+  - email: 8583@example.com
+    password: password
+    locale: de
+  - email: 6356@example.com
+    password: password
+    locale: de
+  - email: 2406@example.com
+    password: password
+    locale: de
+  - email: 8530@example.com
+    password: password
+    locale: de
+  - email: 8170@example.com
+    password: password
+    locale: de
+  - email: 7284@example.com
+    password: password
+    locale: de
+  - email: 3639@example.com
+    password: password
+    locale: de
+  - email: 9774@example.com
+    password: password
+    locale: de
+
+  # Users QN01A
+  - email: 2556@example.com
+    password: password
+    locale: en
+  - email: 3273@example.com
+    password: password
+    locale: en
+  - email: 3026@example.com
+    password: password
+    locale: en
+  - email: 4370@example.com
+    password: password
+    locale: en
+  - email: 9987@example.com
+    password: password
+    locale: en
+  - email: 9259@example.com
+    password: password
+    locale: en
+  - email: 8083@example.com
+    password: password
+    locale: en
+  - email: 9680@example.com
+    password: password
+    locale: en
+  - email: 4665@example.com
+    password: password
+    locale: en
+  - email: 4174@example.com
+    password: password
+    locale: en
+  - email: 2759@example.com
+    password: password
+    locale: en
+  - email: 3269@example.com
+    password: password
+    locale: en
+  - email: 3566@example.com
+    password: password
+    locale: en
+  - email: 3599@example.com
+    password: password
+    locale: en
+  - email: 6911@example.com
+    password: password
+    locale: en
+  - email: 7959@example.com
+    password: password
+    locale: en
+  - email: 7087@example.com
+    password: password
+    locale: en
+  - email: 8317@example.com
+    password: password
+    locale: en
+  - email: 3026@example.com
+    password: password
+    locale: en
+  - email: 3611@example.com
+    password: password
+    locale: en
+  - email: 1579@example.com
+    password: password
+    locale: en
+  - email: 6676@example.com
+    password: password
+    locale: en
+  - email: 1234@example.com
+    password: password
+    locale: en
+  - email: 5661@example.com
+    password: password
+    locale: en
+  - email: 6929@example.com
+    password: password
+    locale: en
+

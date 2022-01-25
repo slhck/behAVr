@@ -1,0 +1,37 @@
+.star-rating:not(old){
+  display        : inline-block;
+  width          : 17.5em;
+  height         : 3.5em;
+  overflow       : hidden;
+  vertical-align : bottom;
+}
+
+.star-rating:not(old) > input{
+  margin-right : -100%;
+  opacity      : 0;
+}
+
+.star-rating:not(old) > label{
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url(<%= image_url('star-off.svg') %>);
+  background-size : contain;
+}
+
+.star-rating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 3.5em;
+  height          : 3.5em;
+  background      : url(<%= image_url('star-on.svg') %>);
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.1s linear;
+}
+
+.star-rating:not(old) > label:hover:before,
+.star-rating:not(old) > label:hover ~ label:before,
+.star-rating:not(:hover) > :checked ~ label:before{
+  opacity : 1;
+}

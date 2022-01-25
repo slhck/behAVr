@@ -1,0 +1,29 @@
+h5.video-header {
+  margin-bottom: 0px
+}
+
+.video-thumbnail-container {
+  position: relative;
+}
+
+.video-duration {
+  position: absolute;
+  z-index: 100;
+  font-size: 0.9em;
+  color: white;
+  background-color: #333;
+  right: 0;
+  bottom: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.video-thumbnail.disabled {
+  background-color: SlateGray;
+  opacity: 0.40;
+  -moz-opacity: 40%;
+  -webkit-opacity: 40%;
+  z-index: 2;
+}

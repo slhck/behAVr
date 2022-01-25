@@ -1,0 +1,18 @@
+conditions:
+  - cond_id: HRC01
+  - cond_id: HRC02
+    player_params:
+      initialBufferingTime: 30
+  - cond_id: HRC03
+    player_params:
+      stallingEventList: [[32, 30]]
+  - cond_id: HRC04
+    player_params:
+      qualityChangeEventList: [[45, 1]]
+  - cond_id: HRC05
+    player_params:
+      qualityChangeEventList: [[0, 2]]
+  - cond_id: HRC06
+    player_params:
+      qualityChangeEventList: [[0, 0]]
+  - cond_id: HRC07 # second reference condition

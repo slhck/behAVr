@@ -1,0 +1,75 @@
+<h3>Experiment Progress <%= experiment_progress.id %> — User <%= experiment_progress.user.email %></h3>
+
+<p>Watched sequences: <%= experiment_progress.watched_sequences.count %> (<%= experiment_progress.watched_sequence_ids.join(', ') %>)</p></p>
+<p>Rated sequences: <%= experiment_progress.rated_sequences.count %> (<%= experiment_progress.rated_sequence_ids.join(', ') %>)</p>
+
+<table class="table table-striped sortable">
+  <thead style="cursor: pointer;">
+    <th>ID</th>
+    <th>Created</th>
+    <th>Condition</th>
+    <th>Source Video</th>
+    <th>Ratings?</th>
+    <th>Clicks?</th>
+    <th>Seeks?</th>
+    <th>Fullscreen?</th>
+    <th>Pauses?</th>
+    <th>Reloaded?</th>
+  </thead>
+  <tbody>
+    <% experiment_progress.sequence_results.order(:created_at).each do |sequence_result| %>
+      <tr>
+        <td><%= link_to sequence_result.id, sequence_result_path(sequence_result) %></td>
+        <td><%= sequence_result.created_at.strftime('%d.%m.%Y, %H:%M:%S') %></td>
+        <td><%= sequence_result.test_sequence.condition.cond_id %></td>
+        <td><%= sequence_result.test_sequence.source_video.src_id %> (<%= sequence_result.test_sequence.source_video.name %>)</td>
+        <td>
+          <% if sequence_result.ratings.any? %>
+            <span class="label label-success"><%= sequence_result.ratings.count %></span>
+          <% else %>
+            <span class="label label-danger"><%= sequence_result.ratings.count %></span>
+          <% end %>
+        </td>
+        <td>
+          <% clicks = sequence_result.behavior_events.where(type: 'user.mouse.clicked') %>
+          <% if clicks.any? %>
+            <span class="label label-warning"><%= clicks.count %></span>
+          <% else %>
+            <span class="label label-default"><%= clicks.count %></span>
+          <% end %>
+        </td>
+        <td>
+          <% seeks = sequence_result.behavior_events.where(type: 'user.player.seek') %>
+          <% if seeks.any? %>
+            <span class="label label-warning"><%= seeks.count %></span>
+          <% else %>
+            <span class="label label-default"><%= seeks.count %></span>
+          <% end %>
+        </td>
+        <td>
+          <% fullscreen = sequence_result.behavior_events.where(type: 'system.player.fullscreen') %>
+          <% if fullscreen.any? %>
+            <span class="label label-warning"><%= fullscreen.count %></span>
+          <% else %>
+            <span class="label label-default"><%= fullscreen.count %></span>
+          <% end %>
+        </td>
+        <td>
+          <% pauses = sequence_result.behavior_events.where(type: 'user.player.pause') %>
+          <% if pauses.any? %>
+            <span class="label label-warning"><%= pauses.count %></span>
+          <% else %>
+            <span class="label label-default"><%= pauses.count %></span>
+          <% end %>
+        </td>
+        <td>
+          <% if sequence_result.times_reloaded > 0 %>
+            <span class="label label-warning"><%= sequence_result.times_reloaded %></span>
+          <% else %>
+            <span class="label label-default"><%= sequence_result.times_reloaded %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %> <!-- each sequence_result -->
+  </tbody>
+</table>

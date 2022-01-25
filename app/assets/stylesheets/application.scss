@@ -1,0 +1,14 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "source_videos.css";
+
+ @font-face {
+   font-family: 'Glyphicons Halflings';
+   src: url('../assets/glyphicons-halflings-regular.eot');
+   src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+   url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+   url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+   url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+ }

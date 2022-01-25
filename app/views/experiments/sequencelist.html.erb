@@ -1,0 +1,25 @@
+<h1><%= @experiment.name %></h1>
+
+<% experiment_progress = current_user.experiment_progresses.where(experiment: @experiment).first %>
+
+<% unless experiment_progress.finished_main_part? %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t(:instructions) %></h3>
+  </div>
+  <div class="panel-body">
+    <%= md(@experiment.main_instructions) %>
+  </div>
+</div>
+
+<hr>
+
+<% end %>
+
+<%= render 'test_sequences/grid', test_sequences: current_user.test_sequences, experiment_progress: experiment_progress %>
+
+<hr>
+
+<div class="pull-right" style="margin-bottom:50px">
+<%= button_to t(:finish), finish_experiment_path(@experiment), class: 'btn btn-large btn-primary', disabled: !experiment_progress.finished_main_part? %>
+</div>
